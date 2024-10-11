@@ -1,8 +1,7 @@
-import Message from "./Message"
 import { useArrowNavigation } from "../hooks/useArrowNavigation"
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import { useKey } from "react-use"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function Profile() {
   const fields = [
@@ -16,19 +15,13 @@ export default function Profile() {
     {answer: "いいえ", message: "前の画面に戻ります", path: "/"},
   ]
 
-  const messages = [
-    "ゲームを始めます",
-    "前の画面に戻ります"
-  ]
   const navigate = useNavigate()
   const { selectedIndex, updateIndex } = useArrowNavigation(choises.length)
   const selectedIndexRef = useRef(selectedIndex)
   selectedIndexRef.current = selectedIndex
-  const [selectedMessage, setSelectedMessage] = useState("")
 
   function handleSelect(index: number) {
     updateIndex(index)
-    setSelectedMessage(messages[index])
   }
 
 
