@@ -1,7 +1,7 @@
 import { useArrowNavigation } from "../hooks/useArrowNavigation"
 import { useRef } from "react"
 import { useKey } from "react-use"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Profile() {
   const fields = [
@@ -11,7 +11,7 @@ export default function Profile() {
   ]
 
   const choises = [
-    {answer: "はい", message: "ゲームを始めます", path: "/test"},
+    {answer: "はい", message: "ゲームを始めます", path: "/map"},
     {answer: "いいえ", message: "前の画面に戻ります", path: "/"},
   ]
 
@@ -56,7 +56,7 @@ export default function Profile() {
                 ) : (
                   <span className="mr-2 animate-blink">{"　"}</span>
                 )}
-                {choise.answer}
+                <Link to={choise.path}>{choise.answer}</Link>
               </p>
           ))}
         </div>

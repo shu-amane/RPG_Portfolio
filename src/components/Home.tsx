@@ -9,6 +9,7 @@ export default function Home() {
   useKey("Enter", () => {
     navigate("/profile")
   })
+
   return(
     <div className="flex flex-col justify-between min-h-[calc(100vh-200px)] p-2">
       <h1 className="text-4xl mb-8 text-center">
